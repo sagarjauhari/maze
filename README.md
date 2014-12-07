@@ -12,3 +12,7 @@ Inspired by the [How to build a maze](http://mazeworks.com/mazegen/mazetut/index
 
 
 ![](https://raw.githubusercontent.com/sagarjauhari/maze/master/out/garden.png)
+
+See also
+
+1. http://www.cr31.co.uk/stagecast/wang/perfect.html
