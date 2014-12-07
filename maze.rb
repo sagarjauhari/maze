@@ -1,5 +1,6 @@
 require "chunky_png"
 
+# A maze is made of several cells arranged in a lattice structure.
 class Cell
   def initialize(border)
     @border = border
@@ -10,6 +11,7 @@ class Cell
 end
 
 
+# Creates an empty size X size square grid with border cells defined
 def create_empty_grid(size)
   grid = []
 
@@ -33,6 +35,8 @@ def create_empty_grid(size)
   grid << bot_row
 end
 
+# For coordinates (x, y) in the grid find a random neighbor of that cell which
+# is not a border cell and hasn't been visited
 def rand_unvisited_neighbor(grid, x, y)
   coords = [[x-1, y], [x, y+1], [x+1, y], [x, y-1]].shuffle
   coords.reject! do |c|
@@ -42,6 +46,8 @@ def rand_unvisited_neighbor(grid, x, y)
   coords.first
 end
 
+# If the cells at coord1 and coord2 are neighbors, then break the walls between
+# them
 def break_walls(grid, coord1, coord2)
   x1 = coord1[0]
   y1 = coord1[1]
@@ -71,6 +77,7 @@ def break_walls(grid, coord1, coord2)
   end
 end
 
+# Recursive DFS to knock down walls between cells of the grid
 def build_maze!(grid, x, y)
   cell = grid[x][y]
   cell.visited = true
