@@ -1,0 +1,4 @@
+maze
+====
+
+Procedural maze generation
